@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Vendas</title>
+    <style>
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gerenciamento de Vendas</h1>
+    <h2>Adicionar Venda</h2>
+    <form id="formAdicionarVenda">
+        <label for="idVenda">ID Venda: </label>
+        <input type="text" id="idVenda" name="idVenda" required>
+
+        <label for="dataVenda">Data Venda: </label>
+        <input type="date" id="dataVenda" name="dataVenda" required>
+
+        <label for="idMedicamentoVenda">ID Medicamento: </label>
+        <input type="text" id="idMedicamentoVenda" name="idMedicamentoVenda" required>
+
+        <label for="idClienteVenda">ID Cliente: </label>
+        <input type="text" id="idClienteVenda" name="idClienteVenda" required>
+
+        <button type="button" onclick="adicionarVenda()">Adicionar</button>
+    </form>
+
+    <h2>Listar Vendas</h2>
+    <ul id="listaVendas"></ul>
+
+    <script src="../clients/vendas.js"></script>
+
+    <script>
+        // Adicione um evento de escuta ao formulário
+        document.getElementById('formAdicionarVenda').addEventListener('submit', function(event) {
+            event.preventDefault();
+            adicionarVenda();
+        });
+
+        // Função para adicionar links HATEOAS à lista de vendas
+        function addHateoasLinks(venda) {
+            const links = venda._links;
+
+            // Adiciona links à lista de vendas
+            const listItem = document.createElement('li');
+            listItem.textContent = `ID Venda: ${venda.id_venda} - Data: ${venda.data_venda} - ID Medicamento: ${venda.id_medicamento} - ID Cliente: ${venda.id_cliente}`;
+
+            // Adiciona links
+            if (links) {
+                const linkList = document.createElement('ul');
+                Object.keys(links).forEach(rel => {
+                    const linkItem = document.createElement('li');
+                    linkItem.innerHTML = `<a href="${links[rel].href}" rel="${rel}">${rel}</a>`;
+                    linkList.appendChild(linkItem);
+                });
+                listItem.appendChild(linkList);
+            }
+
+            // Adiciona à lista de vendas
+            document.getElementById('listaVendas').appendChild(listItem);
+        }
+    </script>
+</body>
+</html>

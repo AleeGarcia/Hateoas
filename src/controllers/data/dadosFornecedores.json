@@ -1,0 +1,38 @@
+{
+  "fornecedores": [
+    {
+      "id_fornecedor": 1,
+      "nome_fornecedor": "Medicamentos ABC",
+      "endereco_fornecedor": "Avenida A",
+      "telefone_fornecedor": "+55 51 91234-1234",
+      "_links": {
+        "self": {
+          "href": "/fornecedores/1"
+        },
+        "update": {
+          "href": "/fornecedores/1/update"
+        },
+        "delete": {
+          "href": "/fornecedores/1/delete"
+        }
+      }
+    },
+    {
+      "id_fornecedor": 2,
+      "nome_fornecedor": "sasd",
+      "endereco_fornecedor": "dsad",
+      "telefone_fornecedor": "11",
+      "_links": {
+        "self": {
+          "href": "/fornecedores/2"
+        },
+        "update": {
+          "href": "/fornecedores/2/update"
+        },
+        "delete": {
+          "href": "/fornecedores/2/delete"
+        }
+      }
+    }
+  ]
+}

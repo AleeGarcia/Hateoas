@@ -1,0 +1,76 @@
+{
+  "Cliente": [
+    {
+      "id": 1,
+      "nome": "Teste",
+      "endereco": "Teste",
+      "email": "Teste",
+      "telefone": 123,
+      "_links": {
+        "self": {
+          "href": "/clientes/1"
+        },
+        "update": {
+          "href": "/clientes/1/update"
+        },
+        "delete": {
+          "href": "/clientes/1/delete"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "nome": "Teste Dois",
+      "endereco": "1234",
+      "email": "teste@gmail.com",
+      "telefone": "12345",
+      "_links": {
+        "self": {
+          "href": "/clientes/2"
+        },
+        "update": {
+          "href": "/clientes/2/update"
+        },
+        "delete": {
+          "href": "/clientes/2/delete"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "nome": "Teste Tres",
+      "endereco": "alo",
+      "email": "teste@teste.com",
+      "telefone": "1092830921",
+      "_links": {
+        "self": {
+          "href": "/clientes/3"
+        },
+        "update": {
+          "href": "/clientes/3/update"
+        },
+        "delete": {
+          "href": "/clientes/3/delete"
+        }
+      }
+    },
+    {
+      "id": 1,
+      "nome": "dsad",
+      "endereco": "dsada",
+      "email": "dsad",
+      "telefone": "32",
+      "_links": {
+        "self": {
+          "href": "/clientes/4"
+        },
+        "update": {
+          "href": "/clientes/4/update"
+        },
+        "delete": {
+          "href": "/clientes/4/delete"
+        }
+      }
+    }
+  ]
+}

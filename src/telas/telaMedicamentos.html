@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Medicamentos</title>
+    <style>
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gerenciamento de Medicamentos</h1>
+    <h2>Adicionar Medicamento</h2>
+    <form id="formAdicionarMedicamento">
+        <label for="idMedicamento">ID: </label>
+        <input type="text" id="idMedicamento" name="idMedicamento" required>
+
+        <label for="nomeMedicamento">Nome: </label>
+        <input type="text" id="nomeMedicamento" name="nomeMedicamento" required>
+
+        <label for="fabricanteMedicamento">Fabricante: </label>
+        <input type="text" id="fabricanteMedicamento" name="fabricanteMedicamento" required>
+
+        <label for="precoMedicamento">Preço: </label>
+        <input type="text" id="precoMedicamento" name="precoMedicamento" required>
+
+        <label for="quantidadeMedicamento">Quantidade: </label>
+        <input type="text" id="quantidadeMedicamento" name="quantidadeMedicamento" required>
+
+        <button type="button" onclick="adicionarMedicamento()">Adicionar</button>
+    </form>
+
+    <h2>Listar Medicamentos</h2>
+    <ul id="listaMedicamentos"></ul>
+
+    <script src="../clients/medicamentos.js"></script>
+
+    <script>
+        // Função para adicionar links HATEOAS à lista de medicamentos
+        function addHateoasLinks(medicamento) {
+            const links = medicamento._links;
+
+            // Adiciona links à lista de medicamentos
+            const listItem = document.createElement('li');
+            listItem.textContent = `ID: ${medicamento.id} - Nome: ${medicamento.nome} - Fabricante: ${medicamento.fabricante} - Preço: ${medicamento.preco} - Quantidade: ${medicamento.quantidade}`;
+
+            // Adiciona links
+            if (links) {
+                const linkList = document.createElement('ul');
+                Object.keys(links).forEach(rel => {
+                    const linkItem = document.createElement('li');
+                    linkItem.innerHTML = `<a href="${links[rel].href}" rel="${rel}">${rel}</a>`;
+                    linkList.appendChild(linkItem);
+                });
+                listItem.appendChild(linkList);
+            }
+
+            // Adiciona à lista de medicamentos
+            document.getElementById('listaMedicamentos').appendChild(listItem);
+        }
+    </script>
+</body>
+</html>

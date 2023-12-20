@@ -1,0 +1,40 @@
+{
+  "medicamentos": [
+    {
+      "id": 1,
+      "nome": "Paracetamol",
+      "fabricante": "Farmacia B",
+      "preco": 10,
+      "quantidade": 10,
+      "_links": {
+        "self": {
+          "href": "/medicamentos/1"
+        },
+        "update": {
+          "href": "/medicamentos/1/update"
+        },
+        "delete": {
+          "href": "/medicamentos/1/delete"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "nome": "Adsakdas",
+      "fabricante": "dsad",
+      "preco": "213",
+      "quantidade": "123",
+      "_links": {
+        "self": {
+          "href": "/medicamentos/2"
+        },
+        "update": {
+          "href": "/medicamentos/2/update"
+        },
+        "delete": {
+          "href": "/medicamentos/2/delete"
+        }
+      }
+    }
+  ]
+}
